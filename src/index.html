@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+        <!-- Add your site or application content here -->
+        <div id="app">
+          <h2>{{ message }}</h2>
+        </div>
+        <script src="js/vue.min.js"></script>
+        <script>
+          var vm = new Vue({
+                    el: '#app',
+                    data: {
+                      message: "Hello Vue!"
+                    }
+                  })
+        </script>
+
+    </body>
+</html>
