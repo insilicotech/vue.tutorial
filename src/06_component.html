@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico in the root directory -->
+
+  <style>
+    .is-loading {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Section: HTML -->
+  <div id="root">
+    <task-list></task-list>
+  </div>
+
+  <!-- Section: Vue scripts -->
+  <script src="js/vue.js"></script>
+  <script>
+    // 1-a. Simple component
+    Vue.component('task',{
+      template: '<li><slot></slot></li>'
+    });
+
+    // 1-b. Composite component
+    Vue.component('task-list', {
+      template: `
+        <div>
+          <task v-for="task in tasks" :key="task.id">{{ task.task }}</task>
+        </div>
+      `,
+      data() {
+        return {
+          tasks: [
+            { id: 0, task: 'Go to the store', completed: true },
+            { id: 2, task: 'Go to school', completed: true },
+            { id: 1, task: 'Go to club', completed: false }
+          ]
+        };
+      }
+    });
+
+    // 2. Vue instance
+    var app = new Vue({
+      el: '#root'
+    });
+  </script>
+
+</body>
+
+</html>

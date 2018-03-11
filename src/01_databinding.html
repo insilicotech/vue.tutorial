@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico in the root directory -->
+
+</head>
+
+<body>
+  <!-- Add your site or application content here -->
+  <div id="root">
+    <input type="text" id="input" v-model="message">
+    <p>The value you input is: {{ message }}. </p>
+
+    <ul>
+      <li v-for="name in names">{{ name }}</li>
+    </ul>
+  </div>
+
+  <!-- Add your vue scripts here -->
+  <script src="js/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data: {
+        message: "Hello Vue!",
+        names: ['Apple', 'Banana', 'Strawberry']
+      }
+    })
+  </script>
+
+</body>
+
+</html>

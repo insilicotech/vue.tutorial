@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico in the root directory -->
+
+  <style>
+    .is-loading {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Section: HTML -->
+  <div id="root">
+    <!-- computed attributes -->
+    <h2>
+      {{ reverseMessage }}
+    </h2>
+
+    <!-- Section: computed 2 -->
+    <h2>All Tasks</h2>
+    <ul>
+      <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <!-- Section: computed 3 -->
+    <h2>Incompleted Tasks</h2>
+    <ul>
+      <li v-for="task in incompletedTasks" v-text="task.description"></li>
+    </ul>
+
+  </div>
+
+  <!-- Section: Vue scripts -->
+  <script src="js/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#root',
+
+      data: {
+        message: 'Hello Vue.',
+        tasks: [{
+            description: 'Go to the bookstore',
+            completed: true
+          },
+          {
+            description: 'Finish the homework',
+            completed: false
+          },
+          {
+            description: 'Excercise in Jim',
+            completed: false
+          }
+        ]
+      },
+
+      computed: {
+        reverseMessage() {
+          return this.message.split('').reverse().join('');
+        },
+
+        incompletedTasks() {
+          return this.tasks.filter(task => ! task.completed);
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

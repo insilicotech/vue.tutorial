@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico in the root directory -->
+
+  <style>
+    .is-loading { color: blue; }
+  </style>
+</head>
+
+<body>
+  <!-- Section: HTML -->
+  <div id="root">
+    <!-- Attribute binding -->
+    <button v-bind:title="title">Hover on me!</button>
+
+    <!-- Class Name binding -->
+    <button @click="toggleClass":class="{ 'is-loading': isLoading }">Class Name binding(Click me!)</button>
+  </div>
+
+  <!-- Section: Vue scripts -->
+  <script src="js/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#root',
+      data: {
+        isLoading: false,
+        title: 'Now the title is being set throuth Vue Attribute binding.'
+      },
+      methods: {
+        toggleClass() {
+          this.isLoading = true;
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

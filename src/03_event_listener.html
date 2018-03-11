@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico in the root directory -->
+
+</head>
+
+<body>
+  <!-- Add your site or application content here -->
+  <div id="root">
+    <ul>
+      <li v-for="name in names"> {{ name }} </li>
+    </ul>
+    <input v-model="newName" type="text">
+<!--
+    <button v-on:click="addName"> Add name </button>
+-->
+    <button @click="addName"> Add name </button>
+  </div>
+
+  <!-- Add your vue scripts here -->
+  <script src="js/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#root',
+      data: {
+        newName: '',
+        names: ['Max', 'Min', 'Avg']
+      },
+
+      methods: {
+         addName() {
+            this.names.push(this.newName);
+            this.newName = '';
+         }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
