@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/bulma.css">
+    <style type="text/css">
+        body {
+            padding-top: 40px
+        }
+    </style>
+    <style type="text/css">
+        body {
+            padding-top: 40px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section: HTML -->
+    <div id="root" class="container">
+        <message title="Hello IST" body="Lorem ipsum dolar sit amet."></message>
+    </div>
+    <!-- Section: Vue scripts -->
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component('message', {
+            props: ['title', 'body']
+            , template: `
+    <div id="root" class="container">
+        <article class="message">
+            <div class="message-header">
+                <p>{{ title }}</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">{{ body }}</div>
+        </article>
+    </div>        
+`
+        });
+        var app = new Vue({
+            el: '#root'
+        });
+    </script>
+</body>
+
+</html>
